@@ -84,8 +84,7 @@ class _SearchCurrencyBottomSheetState extends State<SearchCurrencyBottomSheet> {
     );
   }
 
-  /// [BlocBuilder] builds a ListView for displaying all found currencies if
-  /// the [CurrencyState] is [CurrencyLoadedState]
+
   BlocBuilder<CurrencyBloc, CurrencyState> _buildListView(
       ScrollController scrollController) {
     return BlocBuilder<CurrencyBloc, CurrencyState>(
@@ -122,8 +121,7 @@ class _SearchCurrencyBottomSheetState extends State<SearchCurrencyBottomSheet> {
     );
   }
 
-  /// Searches for a desirable currency among [AllCurrencies.currencies],
-  /// takes in a [String], returns a list of [Currency]
+
   List<Currency> _searchCurrencies(String searchText) {
     if (searchText.isNotEmpty) {
       _currenciesFound = _allCurrencies.where((element) {
@@ -146,8 +144,7 @@ class _SearchCurrencyBottomSheetState extends State<SearchCurrencyBottomSheet> {
     return _currenciesFound;
   }
 
-  /// Adds a new [ConvertCurrenciesEvent] to [CurrencyBloc] ands closes
-  /// [showModalBottomSheet]
+
   void _onTileTap(int index, CurrencyLoadedState state) {
     Navigator.of(context).pop();
     if (widget.isBaseCurrency) {
