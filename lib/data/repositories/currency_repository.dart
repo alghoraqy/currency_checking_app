@@ -7,7 +7,6 @@ import 'package:currency_checking_app/data/models/currency_model.dart';
 class CurrencyRepository {
   final _apiKey = '09a07ddcae214ea1a920dc27420d52b1';
 
-  /// Fetches data from an API, decodes JSON response body and returns a [CurrencyPair]
   Future<CurrencyPair> convertCurrencies({
     required Currency baseCurrency,
     required Currency toCurrency,
@@ -23,7 +22,6 @@ class CurrencyRepository {
     }
   }
 
-  /// Returns a list of [Currency] models from a map stored in [AllCurrencies]
   List<Currency> getAllCurrencies() {
     List<Currency> list = [];
     AllCurrencies.currencies.forEach((key, value) {

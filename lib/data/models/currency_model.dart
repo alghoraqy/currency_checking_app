@@ -19,7 +19,6 @@ class Currency extends Equatable {
         emoji,
       ];
 
-  /// Returns a [Currency] model from a currency code (ISO 4217)
   factory Currency.fromCode({required String currencyCode}) {
     final currencies = AllCurrencies.currencies;
     return Currency(

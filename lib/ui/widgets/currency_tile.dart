@@ -67,7 +67,6 @@ class _CurrencyTileState extends State<CurrencyTile> {
     );
   }
 
-  /// Handles hovering. Returns [MouseRegion] if the platform is web otherwise returns [Listener]
   Widget _hoveringFunc({required Widget child}) {
     return kIsWeb
         ? MouseRegion(

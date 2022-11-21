@@ -8,7 +8,6 @@ import 'package:path_provider/path_provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  /// Storage for a [HydratedBloc]. Uses different directories based on a platform
   final storage = await HydratedStorage.build(
     storageDirectory: kIsWeb
         ? HydratedStorage.webStorageDirectory
@@ -25,12 +24,11 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  /// This widget is the root of this app
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       darkTheme: ThemeData.dark(),
-      title: 'Flutter Demo',
+      title: 'currency checking app',
       theme: ThemeData.dark(),
       home: const MainPage(),
     );

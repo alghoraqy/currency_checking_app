@@ -78,7 +78,6 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
-  /// Adds new [CurrencyEvent] to a [CurrencyBloc]
   void _addEvent() {
     _currencyBloc.add(ConvertCurrenciesEvent(
       baseCurrency: _currentCurrencyPair.baseCurrency,
@@ -87,7 +86,6 @@ class _MainPageState extends State<MainPage> {
     ));
   }
 
-  // Returns a properly formatted date of a last update
   String _getLastUpdated() {
     var lastUpdated = DateTime.fromMillisecondsSinceEpoch(
         (_currentCurrencyPair.lastUpdated * 1000),
@@ -97,7 +95,6 @@ class _MainPageState extends State<MainPage> {
     return 'Last updated: $yearMonthDay $hoursMinutes';
   }
 
-  /// Sets and formats text property of two [TextEditingController]s for each currency in a pair
   void _setTextControllers() {
     final currencyFormat = intl.NumberFormat("#,##0.00", "en_US");
     _baseTextEditingController.text =
@@ -106,7 +103,6 @@ class _MainPageState extends State<MainPage> {
         currencyFormat.format(_currentCurrencyPair.output);
   }
 
-  /// Returns a text and an update button
   Widget _bottomWidget() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -123,9 +119,6 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
-  /// Handles the onChange function of a [SimpleCalculator]. Updates current
-  /// [CurrencyPair] with a new amount and output, adds a new [SwitchCurrenciesEvent]
-  /// to a [CurrencyBloc]
   void _onCalcClick(double? value) {
     _currentCurrencyPair = _currentCurrencyPair.copyWith(
         amount: value ?? 0,
@@ -133,7 +126,6 @@ class _MainPageState extends State<MainPage> {
     _currencyBloc.add(SwitchCurrenciesEvent(_currentCurrencyPair));
   }
 
-  /// Returns a [SimpleCalculator] widget
   Widget _simpleCalculator() {
     return Expanded(
       child: SimpleCalculator(
@@ -146,7 +138,6 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
-  /// Opens a [BottomSheet] for searching a desirable [Currency] and changing the [CurrencyPair]
   void _showModalBottomSheet(bool isBaseCurrency) {
     showModalBottomSheet(
         clipBehavior: Clip.hardEdge,
@@ -159,7 +150,6 @@ class _MainPageState extends State<MainPage> {
             ));
   }
 
-  /// Returns a widget of a row with a [CurrencyTile] and a [TextField] inside
   Widget _currencyWidget({
     required Currency currency,
     required bool isBaseCurrency,
@@ -196,8 +186,7 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
-  /// Updates current [CurrencyPair], adds a new [SwitchCurrenciesEvent] to a
-  /// [CurrencyBloc]. Basically inverts a [CurrencyPair]
+
   void _switchCurrencies() {
     var prevBase = _currentCurrencyPair.baseCurrency;
     var prevTo = _currentCurrencyPair.toCurrency;
@@ -215,7 +204,6 @@ class _MainPageState extends State<MainPage> {
     _currencyBloc.add(SwitchCurrenciesEvent(_currentCurrencyPair));
   }
 
-  /// Returns a column of two [_currencyWidget]'s and a button inside
   Widget _currencyPairWidget() {
     return Padding(
       padding: const EdgeInsets.fromLTRB(10, 25, 10, 0),
